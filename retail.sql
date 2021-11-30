@@ -39,7 +39,6 @@ CREATE TABLE IF NOT EXISTS public.goods
     good_id serial,
     g_name varchar(50) NOT NULL,
     category_id serial,
-	memory varchar(20),
 	colour varchar(30) NOT NULL,
 	specification text,
     price numeric NOT NULL,
@@ -59,7 +58,6 @@ CREATE TABLE IF NOT EXISTS public.category_of_good
 (
     category_id serial,
     category varchar(30) NOT NULL,
-	accessories text, 
     CONSTRAINT category_of_good_pkey PRIMARY KEY (category_id)
 )
 
@@ -82,7 +80,7 @@ CREATE TABLE IF NOT EXISTS public.discount
 		 REFERENCES public.goods (good_id) MATCH SIMPLE
 )
 
-TABLESPACE pg_default;
+TABLESPACE pg_default;f
 
 ALTER TABLE public.discount
     OWNER to postgres;
@@ -107,7 +105,7 @@ ALTER TABLE public.staff
 CREATE TABLE IF NOT EXISTS public.workers
 (
     worker_id serial, 
-    fio varchar(50) NOT NULL,
+    fcs varchar(50) NOT NULL,
 	birthday date NOT NULL,
 	education varchar NOT NULL,
 	staff_id serial, 
@@ -190,7 +188,7 @@ CREATE TABLE IF NOT EXISTS public.loyalty_card_discounts
 (
     discount_id serial,
 	size_purchases numeric,
-	discount varchar(20) NOT NULL,
+	discount int(20),
 	status varchar(20),
     CONSTRAINT loyalty_card_discounts_pkey PRIMARY KEY (discount_id)
 )
@@ -225,4 +223,3 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.online_orders
     OWNER to postgres;
-	
